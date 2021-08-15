@@ -1,0 +1,19 @@
+{
+  "title": "Some Website",
+  "copyright": "©",
+  "signin_form": {
+    "title": "Sign In",
+    "signup_title": "Sign Up",
+    "new_account": "Need an Account?",
+    "forgot_password": "Forgot Password?",
+    "signin_button": "Sign In",
+    "signup_button": "Sign Up",
+    "remember_checkbox": "Remember me",
+    "email_address": "Email Address",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "email_helper": "You will use this email address to sign into your new account."
+  }
+}
