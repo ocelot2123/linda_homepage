@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 /**
  *
  * Header
@@ -5,12 +6,12 @@
  */
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router-dom';
+
 import { Hidden, IconButton, Toolbar, Typography } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+
 import { useStyles } from './Styles';
-import clsx from 'clsx';
-import { SearchBar } from '../SearchBar';
-import { useHistory } from 'react-router-dom';
 
 interface Props {
   open?: boolean;
@@ -41,13 +42,6 @@ export const Header = memo((props: Props) => {
         Newco logo
       </Typography>
       <Hidden smDown>
-        <div className={classes.search}>
-          <SearchBar
-            onSubmit={() => history.push(`/search?q=${query}`)}
-            setQuery={setQuery}
-            query={query}
-          />
-        </div>
       </Hidden>
     </Toolbar>
   );

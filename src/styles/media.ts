@@ -3,13 +3,8 @@
  */
 
 import {
-  css,
-  DefaultTheme,
-  CSSObject,
-  InterpolationFunction,
-  ThemedStyledProps,
-  Interpolation,
-  FlattenInterpolation,
+    css, CSSObject, DefaultTheme, FlattenInterpolation, Interpolation, InterpolationFunction,
+    ThemedStyledProps
 } from 'styled-components/macro';
 
 /*

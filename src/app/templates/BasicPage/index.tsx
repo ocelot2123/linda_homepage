@@ -1,22 +1,23 @@
+import clsx from 'clsx';
 /**
  *
  * Page
  *
  */
 import React from 'react';
-import clsx from 'clsx';
-import Drawer from '@material-ui/core/Drawer';
+import { useDispatch, useSelector } from 'react-redux';
+
 import AppBar from '@material-ui/core/AppBar';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { useStyles } from './Styles';
-import { PageContainer, PageContainerProps } from '../PageContainer';
+import Drawer from '@material-ui/core/Drawer';
+
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
-import { LeftDrawer } from '../../components/LeftDrawer';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { useUserSlice } from '../../slice';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../slice/selectors';
+import { PageContainer, PageContainerProps } from '../PageContainer';
+import { useStyles } from './Styles';
 
 interface Props extends PageContainerProps {
   title: string;
@@ -63,7 +64,6 @@ export const BasicPage: React.FC<Props> = props => {
                 }),
               }}
             >
-              <LeftDrawer handleDrawerClose={toggleDrawer} />
             </Drawer>
           </>
         )}

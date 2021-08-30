@@ -1,17 +1,19 @@
+import jwtDecode from 'jwt-decode';
+import { useSnackbar } from 'notistack';
 /**
  *
  * PrivateRoute
  *
  */
 import * as React from 'react';
-import { useSnackbar } from 'notistack';
 import { useDispatch, useStore } from 'react-redux';
 import { Route, useHistory, useLocation } from 'react-router-dom';
-import {useMutation, useQuery} from '@apollo/client';
-import {meQuery, refreshTokenMutation, verifyTokenMutation} from '../../queries';
+
+import { useMutation, useQuery } from '@apollo/client';
+
+import { meQuery, refreshTokenMutation, verifyTokenMutation } from '../../queries';
 import { loginUrl } from '../../routes/paths';
 import { useUserSlice } from '../../slice';
-import jwtDecode from 'jwt-decode';
 
 export const PrivateRoute = ({ component: Component, ...rest }) => {
   const store = useStore();
