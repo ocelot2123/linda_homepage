@@ -2,4 +2,6 @@
 * {
   font-family: 'Roboto Mono', monospace;
   font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.2em;
 }
