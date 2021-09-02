@@ -11,7 +11,11 @@ import { Route, useHistory, useLocation } from 'react-router-dom';
 
 import { useMutation, useQuery } from '@apollo/client';
 
-import { meQuery, refreshTokenMutation, verifyTokenMutation } from '../../queries';
+import {
+  meQuery,
+  refreshTokenMutation,
+  verifyTokenMutation,
+} from '../../queries';
 import { loginUrl } from '../../routes/paths';
 import { useUserSlice } from '../../slice';
 
@@ -29,7 +33,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
     fetchPolicy: 'no-cache',
   });
 
-  const { refetch } = useQuery(meQuery, {fetchPolicy: 'no-cache'});
+  const { refetch } = useQuery(meQuery, { fetchPolicy: 'no-cache' });
 
   const logoff = () => {
     dispatch(userActions.logout());
@@ -50,11 +54,11 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
   React.useEffect(() => {
     if (state) {
       // Verify that user still exists
-      refetch().then((x) =>{
-          if(!x.loading && !x.data.me){
-            logoff()
-          }
-      })
+      refetch().then(x => {
+        if (!x.loading && !x.data.me) {
+          logoff();
+        }
+      });
 
       // Attempt to refresh user's token
       if (exp < Math.floor(Date.now() / 1000)) {

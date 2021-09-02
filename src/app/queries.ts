@@ -64,11 +64,11 @@ export const meQuery = gql`
               }
             }
             admins {
-               edges {
+              edges {
                 node {
                   id
                 }
-              }           
+              }
             }
           }
         }
@@ -76,7 +76,7 @@ export const meQuery = gql`
     }
   }
 `;
-export const registerAccountMutation= gql`
+export const registerAccountMutation = gql`
   mutation register(
     $email: String!
     $password1: String!
@@ -125,4 +125,4 @@ export const updateMeMutation = gql`
       errors
     }
   }
-`
+`;

@@ -1,0 +1,35 @@
+.fitted-nav-button {
+  border: 0;
+  border-radius: 3em;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+}
+.fitted-nav-button--primary {
+  color: #000000;
+  background-color: transparent;
+}
+.fitted-nav-button--secondary {
+  color: #8e8e8e;
+  background-color: transparent;
+}
+.fitted-nav-button--h1 {
+  font-size: 20px;
+  line-height: 34px;
+}
+.fitted-nav-button--h2 {
+  font-size: 18px;
+  line-height: 26px;
+}
+.fitted-nav-button--h3 {
+  font-size: 16px;
+  line-height: 24px;
+}
+.fitted-nav-button--h4 {
+  font-size: 14px;
+  line-height: 22px;
+}
+.fitted-nav-button--h5 {
+  font-size: 12px;
+  line-height: 18px;
+}

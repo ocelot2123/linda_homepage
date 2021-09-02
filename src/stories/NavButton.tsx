@@ -1,7 +1,7 @@
 import React from 'react';
-import './button.css';
+import './navButton.css';
 
-interface ButtonProps {
+interface NavButtonProps {
   /**
    * Is this the principal call to action on the page?
    */
@@ -13,7 +13,7 @@ interface ButtonProps {
   /**
    * How large should the button be?
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
   /**
    * Button contents
    */
@@ -27,18 +27,22 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
+export const NavButton = ({
   primary = false,
-  size = 'medium',
+  size = 'h3',
   backgroundColor,
   label,
   ...props
-}: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+}: NavButtonProps) => {
+  const mode = primary
+    ? 'fitted-nav-button--primary'
+    : 'fitted-nav-button--secondary';
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      className={['fitted-nav-button', `fitted-nav-button--${size}`, mode].join(
+        ' ',
+      )}
       style={{ backgroundColor }}
       {...props}
     >

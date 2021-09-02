@@ -1,17 +1,19 @@
+import { useSnackbar } from 'notistack';
 /**
  *
  * SignupPage
  *
  */
 import React from 'react';
-import {SignupView} from './View';
-import {useSnackbar} from 'notistack';
-import {useMutation} from '@apollo/client';
-import {registerAccountMutation} from '../../queries';
-import {useDispatch} from "react-redux";
-import {useUserSlice} from "../../slice";
-import {baseUrl} from "../../routes/paths";
-import {useHistory} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+import { useMutation } from '@apollo/client';
+
+import { registerAccountMutation } from '../../queries';
+import { baseUrl } from '../../routes/paths';
+import { useUserSlice } from '../../slice';
+import { SignupView } from './View';
 
 export function SignupPage() {
   const { enqueueSnackbar } = useSnackbar();
@@ -35,25 +37,33 @@ export function SignupPage() {
     fetchPolicy: 'no-cache',
   });
 
-    React.useEffect(() => {
-        if (authenticated) {
-            history.push(baseUrl);
-        }
-    });
+  React.useEffect(() => {
+    if (authenticated) {
+      history.push(baseUrl);
+    }
+  });
 
-  const register = (email, password1, password2, username, firstName, lastName) =>
+  const register = (
+    email,
+    password1,
+    password2,
+    username,
+    firstName,
+    lastName,
+  ) =>
     registerMutation({
       variables: { email, password1, password2, username, firstName, lastName },
       fetchPolicy: 'no-cache',
     })
       .then(x => {
         dispatch(
-            userActions.authenticate({
-              token: x.data.register.token,
-              refreshToken: x.data.register.refreshToken,
-              username: username,
-            }));
-          setAuthenticated(true);
+          userActions.authenticate({
+            token: x.data.register.token,
+            refreshToken: x.data.register.refreshToken,
+            username: username,
+          }),
+        );
+        setAuthenticated(true);
       })
       .catch(error => {
         enqueueSnackbar(error.message, { variant: 'error' });

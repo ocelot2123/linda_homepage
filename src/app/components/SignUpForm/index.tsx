@@ -5,6 +5,7 @@
  */
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import {
   Avatar,
   Button,
@@ -13,9 +14,10 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
+import { PersonAdd } from '@material-ui/icons';
+
 import { loginUrl } from '../../routes/paths';
 import { Props } from './Props';
-import { PersonAdd } from '@material-ui/icons';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -65,27 +67,27 @@ export const SignUpForm = memo((props: Props) => {
             onChange={e => props.setUsername(e.target.value)}
           />
           <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="firstname"
-              label={t('signin_form.first_name')}
-              name="firstname"
-              value={props.firstName}
-              onChange={e => props.setFirstName(e.target.value)}
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="firstname"
+            label={t('signin_form.first_name')}
+            name="firstname"
+            value={props.firstName}
+            onChange={e => props.setFirstName(e.target.value)}
           />
           <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="lastname"
-              label={t('signin_form.last_name')}
-              name="lastname"
-              autoFocus
-              value={props.lastName}
-              onChange={e => props.setLastName(e.target.value)}
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="lastname"
+            label={t('signin_form.last_name')}
+            name="lastname"
+            autoFocus
+            value={props.lastName}
+            onChange={e => props.setLastName(e.target.value)}
           />
           <TextField
             variant="outlined"

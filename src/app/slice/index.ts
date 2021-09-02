@@ -1,6 +1,8 @@
-import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
-import {useInjectReducer} from 'utils/redux-injectors';
+import { useInjectReducer } from 'utils/redux-injectors';
+
+import { PayloadAction } from '@reduxjs/toolkit';
+
 import { UserState } from './types';
 
 export const initialState: UserState = {
@@ -37,7 +39,7 @@ const slice = createSlice({
       state.sidebarOpen = !state.sidebarOpen;
       localStorage.setItem('sidebar_open', state.sidebarOpen.toString());
     },
-    setLoading(state){
+    setLoading(state) {
       state.loading = state.loading;
     },
   },

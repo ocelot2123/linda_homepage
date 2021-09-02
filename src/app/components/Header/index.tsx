@@ -41,8 +41,7 @@ export const Header = memo((props: Props) => {
       <Typography variant="h6" noWrap>
         Newco logo
       </Typography>
-      <Hidden smDown>
-      </Hidden>
+      <Hidden smDown></Hidden>
     </Toolbar>
   );
 });

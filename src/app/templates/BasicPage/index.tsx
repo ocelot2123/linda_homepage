@@ -63,8 +63,7 @@ export const BasicPage: React.FC<Props> = props => {
                   [classes.drawerClose]: !open,
                 }),
               }}
-            >
-            </Drawer>
+            ></Drawer>
           </>
         )}
         {props.loading ? (
