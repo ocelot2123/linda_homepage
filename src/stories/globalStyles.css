@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
 * {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono';
   font-style: normal;
   font-weight: 500;
-  letter-spacing: 0.2em;
 }

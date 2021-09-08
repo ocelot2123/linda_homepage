@@ -6,7 +6,6 @@ import clsx from 'clsx';
  */
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router-dom';
 
 import { Hidden, IconButton, Toolbar, Typography } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -22,8 +21,6 @@ export const Header = memo((props: Props) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { t, i18n } = useTranslation();
   const classes = useStyles();
-  const [query, setQuery] = React.useState('');
-  const history = useHistory();
 
   return (
     <Toolbar>
