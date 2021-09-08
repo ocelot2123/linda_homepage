@@ -1,0 +1,11 @@
+FROM node:10
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build-storybook
+ARG API_URI
+ENV API_URI ${API_URI:-http://localhost:8000/graphql/}
+
+EXPOSE 6006
+CMD npm run storybook
