@@ -3,6 +3,12 @@ import { unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-u
 import * as C from './colours';
 
 export const theme = createMuiTheme({
+  typography: {
+    fontFamily: 'Roboto Mono',
+    fontWeightLight: 400,
+    fontWeightMedium: 500,
+    fontWeightBold: 600,
+  },
   palette: {
     primary: {
       light: C.primaryLight,
