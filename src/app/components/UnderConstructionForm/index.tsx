@@ -75,10 +75,7 @@ export const UnderConstructionForm = memo((props: Props) => {
               }
             </Typography>
             <Typography component="h5" variant="body1">
-              <strong>FITTED </strong>
-              {
-                'is a fashion e-commerce marketplace that focuses on fit, preventing you from buying the wrong sized garments.'
-              }
+              {'Bridging the gap between the physical and digital world.'}
             </Typography>
           </Grid>
           <Grid item xs={12}>
