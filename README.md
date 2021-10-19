@@ -1,149 +1,117 @@
-<img width="914" alt="React Boilerplate Meets CRA" src="https://user-images.githubusercontent.com/3495307/80274591-2d5daa00-86e4-11ea-8fba-404f1cdba87e.png" align="center">
-<br />
+# INFTE Storefront
 
-<div align="center" >Crafted for <strong>highly scalable</strong> & <strong>performant</strong> and <strong>easily maintainable</strong> React.js applications <br /> 
-with a focus on  
-<strong>best DX</strong> and <strong>best practices</strong>.
-</div>
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#development-process">Development Process</a></li>
+    <li><a href="#deployment">Deployment</a></li>
+    <li>
+      <a href="#frontend-style-guide">Frontend Style Guide</a>
+      <ul>
+        <li><a href="#useful-links">Useful Links</a></li>
+        <li><a href="#creating-components">Creating Components</a></li>
+	<li><a href="#css">CSS</a></li>
+	<li><a href="#jsx">JSX</a></li>
+      </ul>
+    </li>
+  </ol>
+</details>
 
-<br />
+## Development Process
+1. Write code on feature branch
+2. Create PR and wait for code review
+3. Squash and merge into master
+4. Storybook approval from designer
 
-<div align="center">
-  <a href="https://github.com/react-boilerplate/react-boilerplate-cra-template/actions?query=workflow%3Abuild">
-    <img src="https://github.com/react-boilerplate/react-boilerplate-cra-template/workflows/build/badge.svg" alt="Build Status" />
-  </a>
-  <a href="https://github.com/react-boilerplate/react-boilerplate-cra-template/actions?query=workflow%3Atests">
-    <img src="https://github.com/react-boilerplate/react-boilerplate-cra-template/workflows/test/badge.svg" alt="Tests Status" />
-  </a>
-  <a href="https://github.com/react-boilerplate/react-boilerplate-cra-template/actions?query=workflow%release">
-    <img src="https://github.com/react-boilerplate/react-boilerplate-cra-template/workflows/release/badge.svg" alt="Release Status" />
-  </a>
-</div>
+## Deployment
+1. When pushed into master branch, Github Actions builds and pushes storybook into S3 Bucket
 
-<div align="center">
-  <a href="https://coveralls.io/github/react-boilerplate/react-boilerplate-cra-template">
-    <img src="https://coveralls.io/repos/github/react-boilerplate/react-boilerplate-cra-template/badge.svg?branch=master" alt="Coverage" />
-  </a>
-  <a href="https://opencollective.com/react-boilerplate">
-    <img src="https://opencollective.com/react-boilerplate/backers/badge.svg" alt="Backers" />
-  </a>
-  <a href="https://opencollective.com/react-boilerplate/">
-    <img src="https://opencollective.com/react-boilerplate/sponsors/badge.svg" alt="Sponsors" />
-  </a>
-</div>
+## Frontend Style Guide
+### Useful links
+1. [Kent C. Odds blog](https://kentcdodds.com/blog/)
+2. [Airbnb react style guide](https://airbnb.io/javascript/react/#basic-rules)
+### Creating components
+1. Component should have its own folder and at least contain index.ts and ComponentName.tsx files.
+    ```
+    ./ComponentName
+    ├── index.ts
+    ├── ComponentName.tsx
+    ```
+    *ComponentName.tsx*
+    ```tsx
+      import React from 'react'
 
-<br />
+      interface IProps {}
+      
+      const ComponentName: React.FC<IProps> = (props) => {
+        return (
+          <div>
+            
+          </div>
+        )
+      }
 
----
+      export default ComponentName;
 
-The official [Create React App](https://github.com/facebook/create-react-app) template of the `discontinued` [React Boilerplate](https://github.com/react-boilerplate/react-boilerplate)
-![](https://img.shields.io/github/stars/react-boilerplate/react-boilerplate?style=flat)
+      ```
 
-Start your `create-react-app` projects in seconds with the best, industry-standard tools and practices made ready for you.
+    *index.ts*
+    ```ts
+      import ComponentName from './ComponentName';
 
-**📚 Documentation:** [Gitbook](https://cansahin.gitbook.io/react-boilerplate-cra-template/)
+      export default ComponentName;
+    ```
 
-**🎨 Check the example app:** [Demonstrating the features](https://react-boilerplate.github.io/react-boilerplate-cra-template/)
+### CSS
+1. Use styled-components for styling
+2. Naming of the styled-component should start from `S` so developer won't be confused if it is styled component or not
+    ```tsx
+        <SText>
+            Some text
+        <SText>
 
-**📦 Package:** [npm](https://www.npmjs.com/package/cra-template-rb)
+        const SText = styled.span``;
+    ```
+3. <details>
+	  <summary>Use class names for dynamic styles implementation instead of styledComponents props</summary>  
+	  `clsx` util could be useful:  
 
-![version](https://img.shields.io/npm/v/cra-template-rb)
-![version](https://img.shields.io/npm/dm/cra-template-rb)
+    ```tsx
+        <SText className={clsx({active: true, isSomething: false})}>
+            Some text
+        <SText>
 
----
+        const SText = styled.span`
+            &.active{
+                color: blue;
+            }
+            &.isSomething {
+                color: green
+            }
+        `
+    ```
+  </details>
 
-## Install & Start
+4. Breakpoints are defined in the `src/app/components/shared/helpers.ts`
 
-⚠️ Using [Yarn Package Manager](https://yarnpkg.com) is recommended over `npm`.
+5. When styling write mobile-first css properties and in the media queries write styles for higher resolutions
 
-Create React App with the template
+6. For mediaQueries inside styled component use `styledMediaQuery('mobile' | 'tablet' | 'desktop')` helper
+  ```tsx
+    const SHeader = styled.header`
+      /* first mobile */
+      font-size: 12px;
 
-```shell
-npx create-react-app --template cra-template-rb my-app
-```
+      ${styledMediaQuery('tablet')} {
+        font-size: 16px;
+      }
 
-Start and check our example app, if you want
-
-```shell
-cd my-app
-yarn start
-```
-
-Remove the example app to start your project!
-
-```shell
-yarn cleanAndSetup
-```
-
----
-
-## Features
-
-> This project is **NOT** a framework, UI component library or a design system. The only purpose of this template is to assist you starting your CRA app with a solid tool stack and development patterns. It's 100% customizable. After you start your journey and once you understand the concepts offered here you should personalize your code accordingly instead of being tied to the starter project.
->
-> You can add or remove literally anything and use whichever library or tools you prefer.
-
-<dl>
-
-  <dt>Predictable state management</dt>
-  <dd>Unidirectional data flow allows for change logging and time travel debugging.</dd>
-
-  <dt>Instant feedback</dt>
-  <dd>Enjoy the best DX (Developer eXperience) and code your app at the speed of thought! Your saved changes to the CSS and JS are reflected instantaneously without refreshing the page. Preserve application state even when you update something in the underlying code!</dd>
-
-  <dt>Next generation CSS</dt>
-  <dd>Write composable CSS that's co-located with your components for complete modularity. Unique generated class names keep the specificity low while eliminating style clashes. Ship only the styles that are on the page for the best performance.</dd>
-
-  <dt>Industry-standard routing</dt>
-  <dd>It's natural to want to add pages (e.g. `/about`) to your application, and routing makes this possible.</dd>
-
-  <dt>Industry-standard i18n internationalization support</dt>
-  <dd>Scalable apps need to support multiple languages, easily add and support multiple languages.</dd>
-
-  <dt>Typescript</dt>
-  <dd>Typescript is the key to scalability. Build self-documented code, easy-to-debug code and create maintainable large applications and codebases with a highly productive development experience.</dd>
-
-  <dt>Quick scaffolding</dt>
-  <dd>Create components, containers, routes, selectors and sagas - and their tests - right from the CLI!</dd>
-
-  <dt>Static code analysis</dt>
-  <dd>Focus on writing new features without worrying about formatting or code quality. With the right editor setup, your code will automatically be formatted and linted as you work.</dd>
-
-  <dt>SEO</dt>
-  <dd>We support SEO (document head tags management) for search engines that support indexing of JavaScript content. (eg. Google)</dd>
-</dl>
-
-But wait... there's more!
-
-- _The best test setup:_ Automatically guarantee code quality and non-breaking
-  changes. (Seen a react app with 100% test coverage before?)
-- _The fastest fonts:_ Say goodbye to vacant text.
-- _Stay fast_: Profile your app's performance from the comfort of your command
-  line!
-
-<sub><i>Keywords: Create React App, React Boilerplate, Custom Template, Typescript, React.js, Redux, Hot Reloading, ESNext, Babel, react-router, `styled-components`, redux-saga, FontFaceObserver</i></sub>
-
-## Contributors
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/Can-Sahin"><img src="https://avatars2.githubusercontent.com/u/33245689?s=80" width="80px;" alt=""/><br /><sub><b>Can Sahin</b></sub></a><br /><a href="https://github.com/react-boilerplate/react-boilerplate-cra-template/commits?author=Can-Sahin" title="Code">💻</a> <a href="https://github.com/react-boilerplate/react-boilerplate-cra-template/commits?author=Can-Sahin" title="Documentation">📖</a> <a href="#ideas-Can-Sahin" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/react-boilerplate/react-boilerplate-cra-template/pulls?q=is%3Apr+reviewed-by%3ACan-Sahin" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/react-boilerplate/react-boilerplate-cra-template/commits?author=Can-Sahin" title="Tests">⚠️</a></td>
-    <td align="center"><a href="https://github.com/receptiryaki"><img src="https://avatars0.githubusercontent.com/u/3495307?s=80" width="80px;" alt=""/><br /><sub><b>Recep Tiryaki</b></sub></a><br /><a href="https://github.com/react-boilerplate/react-boilerplate-cra-template/commits?author=receptiryaki" title="Code">💻</a> <a href="#ideas-receptiryaki" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-receptiryaki" title="Design">🎨</a></td>
-    <td align="center"><a href="https://github.com/mogsdad"><img src="https://avatars3.githubusercontent.com/u/1707731?s=80" width="80px;" alt=""/><br /><sub><b>David Bingham</b></sub></a><br /><a href="https://github.com/react-boilerplate/react-boilerplate-cra-template/commits?author=mogsdad" title="Documentation">📖</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
-## License
-
-This project is licensed under the MIT license, Copyright (c) 2019 Maximilian Stoiber.
-For more information see `LICENSE.md`.
+      ${styledMediaQuery('desktop')} {
+        font-size: 18px;
+      }
+    `;
+  ```
+### JSX
+1. While writing conditional rendering it is better to use ternary rather than `&&`. 
+  [See this](https://kentcdodds.com/blog/use-ternaries-rather-than-and-and-in-jsx)
