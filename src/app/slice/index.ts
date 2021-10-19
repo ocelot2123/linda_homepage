@@ -40,6 +40,7 @@ const slice = createSlice({
       localStorage.setItem('sidebar_open', state.sidebarOpen.toString());
     },
     setLoading(state) {
+      // eslint-disable-next-line
       state.loading = state.loading;
     },
   },

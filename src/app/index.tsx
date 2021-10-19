@@ -50,11 +50,11 @@ export function App() {
   return (
     <BrowserRouter>
       <Helmet
-        titleTemplate="%s - React Boilerplate"
-        defaultTitle="React Boilerplate"
+        titleTemplate="INFTE"
+        defaultTitle="INFTE"
         htmlAttributes={{ lang: i18n.language }}
       >
-        <meta name="description" content="A React Boilerplate application" />
+        <meta name="description" content="INFTE" />
       </Helmet>
       <ApolloProvider client={client}>
         <MuiThemeProvider theme={theme}>

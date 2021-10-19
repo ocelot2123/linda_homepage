@@ -3,7 +3,7 @@
  * SignUpForm
  *
  */
-import React, { memo, useEffect } from 'react';
+import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
@@ -17,30 +17,41 @@ import {
 } from '@material-ui/core';
 import { Props } from './Props';
 
+import styled from 'styled-components';
+
+import HeaderLogo from './logo.jpeg';
+
+export const LogoIcon: React.FC = () => <SIcon url={HeaderLogo} />;
+
+const SIcon = styled.div<{ url: string }>`
+  min-width: 200px;
+  min-height: 30px;
+  ${({ url }) => {
+    return `background: url(${url});
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;`;
+  }}}
+`;
 const useStyles = makeStyles(theme => ({
   paper: {
+    font: 'Montserrat',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignContent: 'center',
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+  h6: {
+    textAlign: 'center',
   },
   header: {
     letterSpacing: '0.2em',
   },
   form: {
     width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-  },
-  media: {
-    width: '200px',
-    height: '30.4px',
   },
 }));
 
@@ -52,37 +63,31 @@ export const UnderConstructionForm = memo((props: Props) => {
   return (
     <>
       <div className={classes.paper}>
-        <Grid container spacing={3}>
+        <Grid container>
           <Grid item xs={12}>
-            <CardMedia
-              className={classes.media}
-              image={'/fitted.png'}
-              title="Logo"
-            />
+            <LogoIcon />
           </Grid>
           <br />
           <br />
           <br />
           <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <Grid item xs={12}>
-            <Typography className={classes.header} component="h1" variant="h5">
-              <Box fontWeight="fontWeightMedium">{'UNDER CONSTRUCTION.'}</Box>
-            </Typography>
             <br />
-            <Typography component="h5" variant="body1">
+            <Typography component="h6" variant="h6" className={classes.h6}>
               {
                 'Sign up for our Newsletter to receive information around our launch.'
               }
-            </Typography>
-            <Typography component="h5" variant="body1">
-              {'Bridging the gap between the physical and digital world.'}
             </Typography>
           </Grid>
           <Grid item xs={12}>
             <form
               className={classes.form}
               noValidate
-              action="https://shop.us20.list-manage.com/subscribe/post?u=2005da0635f5d9ff2223251c6&amp;id=3d613c37d6"
+              action="https://infte.us5.list-manage.com/subscribe/post?u=80a428e5ff65fbfbaa4209b6d&amp;id=d1b7ed4a49"
               method="post"
               target="_blank"
             >
