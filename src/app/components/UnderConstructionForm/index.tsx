@@ -8,8 +8,6 @@ import { useTranslation } from 'react-i18next';
 
 import {
   Button,
-  Box,
-  CardMedia,
   Grid,
   makeStyles,
   TextField,
@@ -32,6 +30,7 @@ const SIcon = styled.div<{ url: string }>`
             background-position: center;
             background-size: contain;`;
   }}}
+  margin-bottom: 200px;
 `;
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -67,19 +66,10 @@ export const UnderConstructionForm = memo((props: Props) => {
           <Grid item xs={12}>
             <LogoIcon />
           </Grid>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
           <Grid item xs={12}>
-            <br />
             <Typography component="h6" variant="h6" className={classes.h6}>
               {
-                'Sign up for our Newsletter to receive information around our launch.'
+                'Sign up for our Newsletter to receive information about our launch.'
               }
             </Typography>
           </Grid>
@@ -89,7 +79,6 @@ export const UnderConstructionForm = memo((props: Props) => {
               noValidate
               action="https://infte.us5.list-manage.com/subscribe/post?u=80a428e5ff65fbfbaa4209b6d&amp;id=d1b7ed4a49"
               method="post"
-              target="_blank"
             >
               <TextField
                 variant="outlined"
