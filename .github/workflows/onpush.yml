@@ -39,5 +39,5 @@ jobs:
         id: upload-file
         uses: google-github-actions/upload-cloud-storage@main
         with:
-          path: ./build/**
+          path: ./build/
           destination: ${{ secrets.GCP_BUCKET }}
