@@ -14,6 +14,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { Props } from './Props';
+import { styledMediaQuery } from '../shared';
 
 import styled from 'styled-components';
 
@@ -24,13 +25,16 @@ export const LogoIcon: React.FC = () => <SIcon url={HeaderLogo} />;
 const SIcon = styled.div<{ url: string }>`
   min-width: 200px;
   min-height: 30px;
+  ${styledMediaQuery('desktop')} {
+    margin-top: 150px;
+  }
   ${({ url }) => {
     return `background: url(${url});
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;`;
   }}}
-  margin-bottom: 200px;
+  margin-bottom: 100px;
 `;
 const useStyles = makeStyles(theme => ({
   paper: {
