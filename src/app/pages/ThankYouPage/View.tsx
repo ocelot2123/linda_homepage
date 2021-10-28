@@ -6,7 +6,7 @@ import React from 'react';
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 
 import styled from 'styled-components';
-
+import { styledMediaQuery } from 'app/components/shared';
 import HeaderLogo from './logo.jpeg';
 
 export const LogoIcon: React.FC = () => <SIcon url={HeaderLogo} />;
@@ -14,13 +14,16 @@ export const LogoIcon: React.FC = () => <SIcon url={HeaderLogo} />;
 const SIcon = styled.div<{ url: string }>`
   min-width: 200px;
   min-height: 30px;
+  ${styledMediaQuery('desktop')} {
+    margin-top: 150px;
+  }
   ${({ url }) => {
     return `background: url(${url});
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;`;
   }}}
-  margin-bottom: 200px;
+  margin-bottom: 100px;
 `;
 const useStyles = makeStyles(theme => ({
   paper: {
