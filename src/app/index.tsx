@@ -22,11 +22,11 @@ export function App() {
   return (
     <BrowserRouter>
       <Helmet
-        titleTemplate="INFTE"
-        defaultTitle="INFTE"
+        titleTemplate="Linda Zhu"
+        defaultTitle="Linda Zhu"
         htmlAttributes={{ lang: i18n.language }}
       >
-        <meta name="description" content="INFTE" />
+        <meta name="description" content="Linda Zhu" />
       </Helmet>
       <MuiThemeProvider theme={theme}>
         <SnackbarProvider maxSnack={3}>
