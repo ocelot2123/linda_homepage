@@ -3,12 +3,12 @@ import { Container } from '@material-ui/core';
 
 import React from 'react';
 
-import { Grid, makeStyles, Typography } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 
 import styled from 'styled-components';
-//import { styledMediaQuery } from 'app/components/shared';
 import HeaderLogo from './face.png';
 import { styledMediaQuery } from 'app/components/shared';
+import CV from './cv.pdf';
 
 export const LogoIcon: React.FC = () => <SIcon url={HeaderLogo} />;
 
@@ -27,20 +27,22 @@ const SIcon = styled.div<{ url: string }>`
   }}}
 `;
 
-const STitle = styled.div`
+const STitle = styled.h1`
   font-weight: bold;
-  font-size: 30px;
+  font-size: 35px;
   text-align: center;
   margin-bottom: 50px;
+  letter-spacing: 2px;
   ${styledMediaQuery('desktop')} {
-    text-align: right;
-    margin-right: 25px;
+    margin-right: 500px;
+    font-size: 60px;
   }
 `;
 
-const SText = styled.div`
-  margin-bottom: 10px;
+const SText = styled.h2`
+  margin-bottom: 20px;
   margin-right: 0px;
+  font-weight: 300;
   ${styledMediaQuery('desktop')} {
     margin-left: 50px;
   }
@@ -59,6 +61,8 @@ const SButton = styled.a`
   padding: 9px 23px 13px 26px;
   border: none;
   font-weight: 400;
+  margin-bottom: 20px;
+  width: 150px;
   ${styledMediaQuery('desktop')} {
     margin-left: 50px;
   }
@@ -66,7 +70,8 @@ const SButton = styled.a`
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    font: 'Montserrat',
+    paddingTop: 0,
+    font: 'Roboto',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -92,38 +97,34 @@ export const HomePageView = () => {
         <Container>
           <div className={classes.paper}>
             <Grid container>
-              <Grid item xs={12} md={5}>
+              <Grid item xs={12}>
                 <STitle>LINDA ZHU</STitle>
               </Grid>
-              <Grid item xs={12} md={7}></Grid>
-              <Grid item xs={12} md={5}>
+              <Grid item xs={12} md={4}>
                 <LogoIcon />
               </Grid>
-              <Grid item xs={12} md={7}>
-                <Typography component="h6" variant="h6">
-                  <SText>{"Hi I'm Linda!"}</SText>
-                </Typography>
-                <Typography component="h6" variant="h6">
-                  <SText>
-                    {
-                      'I am a second year PhD student in Marketing at the Hong Kong University of Science and Technology (HKUST).'
-                    }
-                  </SText>
-                </Typography>
-                <Typography component="h6" variant="h6">
-                  <SText>
-                    {
-                      'I am interested in how consumers navigate the digital space.'
-                    }
-                  </SText>
-                </Typography>
+              <Grid item xs={12} md={8}>
+                <SText>{"Hi I'm Linda!"}</SText>
+                <SText>
+                  {
+                    'I am a second year PhD student in Marketing at the Hong Kong University of Science and Technology (HKUST).'
+                  }
+                </SText>
                 <SButton
                   type="submit"
                   color="primary"
                   target="_blank"
                   href="https://www.linkedin.com/in/linda-zhu-345408101/"
                 >
-                  Linkedin
+                  LinkedIn
+                </SButton>
+                <SButton
+                  type="submit"
+                  color="primary"
+                  target="_blank"
+                  href={CV}
+                >
+                  CV
                 </SButton>
               </Grid>
             </Grid>

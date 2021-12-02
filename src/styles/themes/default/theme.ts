@@ -4,7 +4,7 @@ import * as C from './colours';
 
 export const theme = createMuiTheme({
   typography: {
-    fontFamily: 'Montserrat',
+    fontFamily: 'Roboto',
     fontWeightLight: 400,
     fontWeightMedium: 500,
     fontWeightBold: 600,
